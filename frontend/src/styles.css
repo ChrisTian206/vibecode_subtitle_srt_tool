@@ -1,0 +1,269 @@
+:root {
+    font-family: "Avenir Next", "Segoe UI", sans-serif;
+    color: #15223b;
+    background: radial-gradient(circle at top left, #d7e6ff, #f8fbff 55%, #fff4e6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+.shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffffcc;
+    border: 1px solid #dbe5f1;
+    border-radius: 16px;
+    padding: 1.2rem;
+    box-shadow: 0 12px 30px #2f3d5726;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+}
+
+.hint {
+    margin-top: 0;
+    color: #42556f;
+}
+
+.controls {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.workspace {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(360px, 1.2fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.leftPane,
+.rightPane {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.rightPane {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    align-content: start;
+}
+
+.modelHint,
+.muted {
+    margin: 0;
+    color: #415874;
+    font-size: 0.93rem;
+}
+
+label {
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 600;
+}
+
+input,
+select,
+button {
+    font: inherit;
+    padding: 0.6rem 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #bfd0e6;
+}
+
+button {
+    cursor: pointer;
+    background: #1f6feb;
+    color: white;
+    border: none;
+    font-weight: 700;
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.error {
+    margin: 0.8rem 0;
+    color: #b42318;
+    font-weight: 600;
+}
+
+.progressCard,
+.resultCard,
+.srtCard {
+    background: #ffffff;
+    border: 1px solid #d6e1ef;
+    border-radius: 12px;
+    padding: 0.85rem;
+}
+
+.progressHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.55rem;
+}
+
+.progressHead h2,
+.srtCard h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.checkpointList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.checkpoint {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #556b85;
+}
+
+.checkpoint .dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 999px;
+    border: 2px solid #b8c9df;
+}
+
+.checkpoint.done {
+    color: #0f6f47;
+}
+
+.checkpoint.done .dot {
+    border-color: #0f9960;
+    background: #0f9960;
+}
+
+.checkpoint.current {
+    color: #1f6feb;
+    font-weight: 700;
+}
+
+.checkpoint.current .dot {
+    border-color: #1f6feb;
+    background: #1f6feb;
+    box-shadow: 0 0 0 5px #1f6feb1f;
+}
+
+.resultCard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.resultCard p {
+    margin: 0;
+}
+
+.srtEditor {
+    margin: 0.6rem 0 0;
+    background: #0c1728;
+    color: #e9f1ff;
+    border-radius: 10px;
+    padding: 0.8rem;
+    min-height: 220px;
+    max-height: 360px;
+    width: 100%;
+    overflow: auto;
+    white-space: pre-wrap;
+    font: 500 0.88rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    border: 1px solid #20324f;
+    resize: vertical;
+}
+
+.editorActions {
+    margin-top: 0.6rem;
+}
+
+.ghostBtn {
+    background: #edf4ff;
+    color: #143461;
+    border: 1px solid #bfd0e6;
+}
+
+.video,
+.placeholder {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #d6e1ef;
+    background: #101826;
+    min-height: 280px;
+    height: min(62vh, 620px);
+    max-height: calc(100vh - 6rem);
+}
+
+.video {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    max-width: 100%;
+    height: min(62vh, 620px);
+    max-height: calc(100vh - 6rem);
+    object-fit: contain;
+}
+
+.placeholder {
+    color: #ecf2ff;
+    display: grid;
+    place-items: center;
+}
+
+.download {
+    text-decoration: none;
+    background: #0f9960;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .shell {
+        padding: 1rem;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .rightPane {
+        position: static;
+        max-height: none;
+    }
+
+    .video,
+    .placeholder {
+        min-height: 220px;
+        height: auto;
+        max-height: 52vh;
+    }
+
+    .video {
+        width: 100%;
+    }
+}
